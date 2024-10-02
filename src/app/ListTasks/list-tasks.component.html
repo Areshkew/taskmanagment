@@ -1,0 +1,59 @@
+<div class="task-list">
+    <h1 class="task-list__title">Lista de Tareas</h1>
+
+    <!-- Filter Buttons -->
+    <div class="task-list__filters">
+        <button class="button button--outline" [ngClass]="{'button--primary': currentFilter === 'all'}"
+            (click)="changeFilter('all')">
+            Todas
+        </button>
+        <button class="button button--outline" [ngClass]="{'button--primary': currentFilter === 'completed'}"
+            (click)="changeFilter('completed')">
+            Completadas
+        </button>
+        <button class="button button--outline" [ngClass]="{'button--primary': currentFilter === 'pending'}"
+            (click)="changeFilter('pending')">
+            Pendientes
+        </button>
+    </div>
+
+    <!-- Loop through filtered tasks -->
+    <div *ngFor="let task of filteredTasks" class="task-card">
+        <div class="task-card__header">
+            <div class="task-card__info">
+                <!-- Checkbox to mark task as completed -->
+                <input type="checkbox" [checked]="task.status === 'completed'" (change)="toggleTask(task.taskName)"
+                    class="task-card__checkbox" />
+                <label [ngClass]="{'task-card__title--completed': task.status === 'completed'}"
+                    class="task-card__title">
+                    {{ task.taskName }}
+                </label>
+            </div>
+            <div class="task-card__date">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                    <path d="M8 2v4M16 2v4M3 10h18"></path>
+                </svg>
+                <span>{{ task.deadline | date: 'yyyy-MM-dd' }}</span>
+            </div>
+        </div>
+
+        <div class="task-card__details">
+            <h3 class="task-card__subheading">Personas Asociadas:</h3>
+            <div *ngFor="let person of task.persons" class="task-card__person">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span class="task-card__person-name">{{ person.name }}</span>
+                <span class="badge badge--age">{{ person.age }}</span>
+                <div class="task-card__skills">
+                    <span class="task-card__skills-label">Habilidades: </span>
+                    <span *ngFor="let skill of person.skills" class="badge badge--skill">{{ skill }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

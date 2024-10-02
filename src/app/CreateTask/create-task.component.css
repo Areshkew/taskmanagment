@@ -1,0 +1,170 @@
+/* Form block */
+.form {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.form__title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.form__group {
+    margin-bottom: 1.5rem;
+}
+
+.form__field--space-y {
+    margin-bottom: 1rem;
+}
+
+.form__error {
+    color: red;
+    font-size: small;
+}
+
+.input--error {
+    border: 1px solid red !important;
+}
+
+.cursor--blocked {
+    cursor: not-allowed;
+}
+
+/* Input wrapper to properly contain icons */
+.form__input-wrapper {
+    position: relative;
+}
+
+.form__input {
+    height: 2.5rem;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    padding-left: 2.5rem;
+    /* Make space for icons */
+    border-radius: 0.375rem;
+    border: 1px solid #D1D5DB;
+    font-size: 0.875rem;
+    background-color: #F9FAFB;
+    box-sizing: border-box;
+}
+
+.form__icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #9CA3AF;
+    height: 1.125rem;
+    width: 1.125rem;
+}
+
+.form__divider {
+    height: 1px;
+    background-color: #E5E7EB;
+    margin: 1.5rem 0;
+}
+
+/* Buttons */
+.form__button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid #D1D5DB;
+    max-width: 150px;
+}
+
+.form__button--save {
+    background-color: #2563EB;
+    color: white;
+    width: 100%;
+}
+
+.form__button--add-person,
+.form__button--add-skill,
+.form__button--remove-skill,
+.form__button--remove-person {
+    background-color: #F9FAFB;
+    border: 1px solid #D1D5DB;
+}
+
+.form__button--remove {
+    background-color: lightcoral;
+}
+
+.form__button--remove:hover {
+    background-color: red !important;
+}
+
+.form__button:hover {
+    background-color: #1D4ED8;
+    color: #fff;
+}
+
+.form__button--save:hover {
+    background-color: #1E40AF;
+}
+
+.form__button--remove-skill:hover {
+    color: #DC2626;
+}
+
+.form__icon--small {
+    margin-right: 0.5rem;
+}
+
+.task.form__group {
+    padding: 1rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.person__details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.skill-group.form__input-group {
+    display: flex;
+    gap: .5rem;
+    margin: 1rem 0;
+}
+
+.success-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+
+    font-size: 16px;
+    font-weight: bold;
+    animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
